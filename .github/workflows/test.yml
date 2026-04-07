@@ -49,12 +49,12 @@ jobs:
       
       - name: Run tests
         env:
-          DATABASE_URL: postgresql://user:password@localhost:5434/mytestdb
+          DATABASE_URL: postgresql://user:password@localhost:5432/mytestdb
         run: |
           source venv/bin/activate
           
           # 1) Unit tests
-          pytest tests/unit/ --cov=src --junitxml=test-results/junit.xml
+          pytest tests/unit/ --cov=app --junitxml=test-results/junit.xml
           
           # 2) Integration tests
           pytest tests/integration/
